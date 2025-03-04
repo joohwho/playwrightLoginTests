@@ -1,0 +1,47 @@
+# Diretórios do .NET e compilação
+bin/
+obj/
+out/
+
+# Configuração do usuário local
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Playwright
+playwright/.cache/
+**/trace.zip
+**/videos/
+**/screenshots/
+
+# Configuração do Reqnroll (SpecFlow)
+TestExecution.json
+Reqnroll.Plugins/
+
+# Dependências e pacotes
+packages/
+node_modules/
+dist/
+*.nupkg
+*.snupkg
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.DS_Store
+Thumbs.db
+
+# Arquivos sensíveis e de ambiente
+secrets.json
+appsettings.*.json
+.env
+/.vs/LoginTests/CopilotIndices/17.13.433.20974
+/.vs/LoginTests/DesignTimeBuild
+/.vs/LoginTests/FileContentIndex
+/.vs/LoginTests/v17/TestStore/0
+/.vs
