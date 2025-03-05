@@ -3,23 +3,23 @@ using LoginTests.Pages.Interfaces;
 using LoginTests.Pages.Implementations;
 using LoginTests.Support.Drivers.Interfaces;
 using LoginTests.Support.Drivers.Implementations;
+using Microsoft.Playwright;
 
 namespace LoginTests.Support.StartUp;
 
 [Binding]
-public class StartUp
+public class StartUp(IObjectContainer objectContainer)
 {
-    private readonly IObjectContainer _objectContainer;
-
-    public StartUp(IObjectContainer objectContainer)
-    {
-        _objectContainer = objectContainer;
-    }
+    private readonly IObjectContainer _objectContainer = objectContainer;
 
     [BeforeTestRun]
     public static void GlobalSetup(IObjectContainer container)
     {
-        container.RegisterInstanceAs<IDriver>(new Driver());
+        var driver = new Driver();
+
+        container.RegisterInstanceAs<IDriver>(driver);
+        container.RegisterInstanceAs<IPage>(driver.Page);
+
         container.RegisterTypeAs<LoginAppPage, ILoginAppPage>();
     }
 
